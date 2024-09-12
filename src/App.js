@@ -1,3 +1,4 @@
+/*---------
 import logo from './logo.svg';
 import './App.css';
 
@@ -21,5 +22,26 @@ function App() {
     </div>
   );
 }
+----------*/
+
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import ProductList from './store/ProductList';
+import Cart from './store/Cart';
+import './App.css'; // Asegúrate de importar los estilos
+
+function App() {
+  return (
+    <Provider store={store}>
+      <div className="App">
+        <h1>E-commerce App</h1>
+        <ProductList />
+        <Cart />
+      </div>
+    </Provider>
+  );
+}
 
 export default App;
+
