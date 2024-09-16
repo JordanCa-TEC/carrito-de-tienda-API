@@ -1,23 +1,14 @@
-import { createStore, combineReducers } from 'redux';
-import { productsReducer, cartReducer } from './reducers';
+import { configureStore } from '@reduxjs/toolkit';
+import productsSlice from './slices/productsSlice';
+import cartSlice from './slices/cartSlice';
+import productsReducer from './slices/productsSlice';
+import cartReducer from './slices/cartSlice';
 
-// Reducers combinados
-const rootReducer = combineReducers({
-  products: productsReducer,
-  cart: cartReducer,
+const store = configureStore({
+  reducer: {
+    products: productsSlice,
+    cart: cartSlice,
+  },
 });
-
-// Estado inicial para los productos
-const initialProducts = [
-  { id: 1, name: 'Producto 1', price: 100 },
-  { id: 2, name: 'Producto 2', price: 150 },
-  { id: 3, name: 'Producto 3', price: 200 },
-];
-
-// Crea la tienda de Redux con el estado inicial
-const store = createStore(
-  rootReducer,
-  { products: initialProducts, cart: [] }
-);
 
 export default store;
