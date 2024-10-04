@@ -1,10 +1,12 @@
-import { calculateTotal } from './utils';
+// src/testing/utils.test.js
+import { calculateTotal } from './testUtils';
 
 test('calculates total correctly', () => {
   const items = [{ price: 10 }, { price: 20 }];
-  const result = calculateTotal(items);
-  expect(result).toBe(30);
+  const total = calculateTotal(items);
+  expect(total).toBe(30);
 });
+
 
 // src/testing/testUtils.js
 import React from 'react';
